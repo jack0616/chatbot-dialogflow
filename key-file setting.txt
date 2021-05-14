@@ -1,0 +1,1 @@
+$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Admin\Downloads\hansungchatbot-evqd-e006cd07c20f.json"
