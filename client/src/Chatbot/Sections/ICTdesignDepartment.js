@@ -16,13 +16,57 @@ function ICTdesignDepartmentComponent(message) {
     const jsonObj6 = richContent.listValue.values[0].listValue.values[6].structValue.fields;
     const jsonObj7 = richContent.listValue.values[0].listValue.values[7].structValue.fields;
 
-
-
     return (< List.Item style={{ padding: '1rem' }}>
         <List.Item.Meta
             avatar={<Avatar icon={AvatarSrc} />}
             title={message.who}
             description={
+                <div>
+                    <List>
+                        <List.Item>
+                            <List.Item.Meta
+                                title={<a href={jsonObj1.link.stringValue}>{jsonObj1.text.stringValue}</a>}
+                            />
+                        </List.Item>
+
+                        <List.Item>
+                            <List.Item.Meta
+                                title={<a href={jsonObj2.link.stringValue}>{jsonObj2.text.stringValue}</a>}
+                            />
+                        </List.Item>
+
+                        <List.Item>
+                            <List.Item.Meta
+                                title={<a href={jsonObj3.link.stringValue}>{jsonObj3.text.stringValue}</a>}
+                            />
+                        </List.Item>
+
+                        <List.Item>
+                            <List.Item.Meta
+                                title={<a href={jsonObj4.link.stringValue}>{jsonObj4.text.stringValue}</a>}
+                            />
+                        </List.Item>
+
+                        <List.Item>
+                            <List.Item.Meta
+                                title={<a href={jsonObj5.link.stringValue}>{jsonObj5.text.stringValue}</a>}
+                            />
+                        </List.Item>
+
+                        <List.Item>
+                            <List.Item.Meta
+                                title={<a href={jsonObj6.link.stringValue}>{jsonObj6.text.stringValue}</a>}
+                            />
+                        </List.Item>
+
+                        <List.Item>
+                            <List.Item.Meta
+                                title={<a href={jsonObj7.link.stringValue}>{jsonObj7.text.stringValue}</a>}
+                            />
+                        </List.Item>
+                    </List>
+                </div>
+                /*
                 <div>
                     <Card
                         style={{ width: 500 }}
@@ -88,7 +132,9 @@ function ICTdesignDepartmentComponent(message) {
                         ]}
                     >
                     </Card>
+                    
                 </div>
+                */
             }
         />
     </List.Item >)
