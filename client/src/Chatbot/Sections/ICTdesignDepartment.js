@@ -64,6 +64,10 @@ function ICTdesignDepartmentComponent(message) {
                         </List.Item>
                     </List>
                 </div>
+<<<<<<< Updated upstream
+=======
+              
+>>>>>>> Stashed changes
             }
         />
     </List.Item >)

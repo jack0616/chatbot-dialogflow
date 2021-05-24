@@ -7,6 +7,7 @@ import { List, Icon, Avatar } from 'antd';
 import LaptopComponent from './Sections/laptop';
 import WelcomeComponent from './Sections/welcome';
 import ICTdesignDepartmentComponent from './Sections/ICTdesignDepartment';
+import ITConvergenceComponent from './Sections/IT_Convergence_Engineering_Department';
 import WifiComponent from './Sections/WifiSetting';
 import GlobalFashionDepartmentComponent from './Sections/GlobalFashionDepartment';
 import ITConvergenceDepartmentComponent from './Sections/ITConvergenceDepartment';
@@ -183,6 +184,7 @@ function Chatbot() {
                         return WifiComponent(message);
                     case 'department_ICTdesign':
                         return ICTdesignDepartmentComponent(message);
+<<<<<<< Updated upstream
                     case 'department_GlobalFashion':
                         return GlobalFashionDepartmentComponent(message);
                     case 'department_ITConvergenceEngineering':
@@ -203,6 +205,10 @@ function Chatbot() {
                     case 'enterUniversity':
                         ResultComponent = EnterUniversityComponent(message);
                         break;
+=======
+                    case 'department_ITConvergenceEngineering':
+                        return ITConvergenceComponent(message);
+>>>>>>> Stashed changes
                 }
             }
             else {
@@ -211,7 +217,6 @@ function Chatbot() {
             }
 
             return (
-                <List.Item style={{ padding: '1rem' }}>
                     <List.Item.Meta
                         avatar={<Avatar icon={AvatarSrc} />}
                         title={message.who}
