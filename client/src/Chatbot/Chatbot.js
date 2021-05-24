@@ -1,19 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveMessage } from '../_actions/message_actions';
 import Message from './Sections/Message';
-import InfoComponent from './Sections/info'
 import { List, Icon, Avatar } from 'antd';
 import LaptopComponent from './Sections/laptop';
 import WelcomeComponent from './Sections/welcome';
 import ICTdesignDepartmentComponent from './Sections/ICTdesignDepartment';
 import WifiComponent from './Sections/WifiSetting';
+import GlobalFashionDepartmentComponent from './Sections/GlobalFashionDepartment';
+import ITConvergenceDepartmentComponent from './Sections/ITConvergenceDepartment';
+import SocialScienceDepartmentComponent from './Sections/SocialScienceDepartment';
+import ArtdesignDepartmentComponent from './Sections/ArtdesignDepartment';
+import SmartoperationDepartmentComponent from './Sections/SmartoperationDepartment';
+import DirectionsComponent from './Sections/Directions';
+import TotalDepartmentComponent from './Sections/TotalDepartment';
+import PhonebookComponent from './Sections/Phonebook';
+import EnterUniversityComponent from './Sections/EnterUniversity';
 
 function Chatbot() {
     const dispatch = useDispatch();
     //useSelector를 통해 state->message->messages에 전체 메시지가 있으므로 가져옴 
     const messagesFromRedux = useSelector(state => state.message.messages)
+    // React Reference for 'scrolling to bottom'
+    const scrollRef = useRef();
+    const scrollToBottom = () => {
+        if (scrollRef.current === undefined) {
+            console.log("fucked")
+        }
+        else {
+            scrollRef.current.scrollIntoView();
+        }
+    }
 
     //사용자가 처음 들어올 때마다 Welcome 이벤트 실행(환영하는 인삿말)
     useEffect(() => {
@@ -79,7 +97,7 @@ function Chatbot() {
 
 
         }
-
+        scrollToBottom();
     }
 
     //event는 keyPressHanlder에서 사용자가 입력한 메시지
@@ -139,8 +157,6 @@ function Chatbot() {
     //메시지 렌더링
     const renderOneMessage = (message, i) => {
 
-        console.log('message', message)
-
         // 메시지 종류를 구분하기 위한 if문의 나열
 
         // text형 대화에 대한 Message 컴포넌트(Sections/Message.js에 있는 템플릿 가져오기)
@@ -167,6 +183,26 @@ function Chatbot() {
                         return WifiComponent(message);
                     case 'department_ICTdesign':
                         return ICTdesignDepartmentComponent(message);
+                    case 'department_GlobalFashion':
+                        return GlobalFashionDepartmentComponent(message);
+                    case 'department_ITConvergenceEngineering':
+                        return ITConvergenceDepartmentComponent(message);
+                    case 'department_SocialScience':
+                        return SocialScienceDepartmentComponent(message);
+                    case 'department_Artdesign':
+                        return ArtdesignDepartmentComponent(message);
+                    case 'department_Smartoperation':
+                        return SmartoperationDepartmentComponent(message);
+                    case 'directions':
+                        return DirectionsComponent(message);
+                    case 'department_Total':
+                        return TotalDepartmentComponent(message);
+                    case 'phonebook':
+                        ResultComponent = PhonebookComponent(message);
+                        break;
+                    case 'enterUniversity':
+                        ResultComponent = EnterUniversityComponent(message);
+                        break;
                 }
             }
             else {
@@ -209,6 +245,7 @@ function Chatbot() {
 
                 {renderMessage(messagesFromRedux)}
 
+                <span ref={scrollRef} />
 
             </div>
             <input
